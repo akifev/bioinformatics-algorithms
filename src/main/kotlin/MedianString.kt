@@ -1,6 +1,6 @@
 fun Collection<DNA>.findMedianStringByMer(mer: Int): String {
     val possiblePatterns = flatMap { dna -> dna.windowed(mer) }.toSet().toList()
-    return possiblePatterns.minBy { pattern -> sumOf { dna -> minHammingDistance(pattern, dna) } }
+    return possiblePatterns.minBy { pattern -> hammingDistance(pattern) }
 }
 
 fun Collection<DNA>.hammingDistance(pattern: String): Int =
